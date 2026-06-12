@@ -32,7 +32,7 @@ namespace TERM_FLIX.UI
                         AnsiConsole.WriteLine();
 
                         // 1. Bekérjük az elérést a usertől
-                        string path = AnsiConsole.Ask<string>("[white]Add meg a főmappa elérési útját:[/]");
+                        string path = AnsiConsole.Ask<string>("[white]Give a location:[/]");
                         AnsiConsole.WriteLine();
 
                         // 2. Példányosítjuk a scannert
@@ -42,7 +42,7 @@ namespace TERM_FLIX.UI
                         AnsiConsole.Status()
                             .Spinner(Spinner.Known.Dots)
                             .SpinnerStyle(Style.Parse("yellow"))
-                            .Start("Scanner inicializálása...", ctx =>
+                            .Start("Scanner inicialization...", ctx =>
                             {
                                 // Átadjuk a path-t és a Spectre saját 'ctx' változóját
                                 scanner.ExecuteScan(path, ctx);
@@ -50,8 +50,8 @@ namespace TERM_FLIX.UI
 
                         // 4. Miután végzett, megáll a spinner, és várunk egy gombnyomásra
                         AnsiConsole.WriteLine();
-                        AnsiConsole.MarkupLine("[bold green]✔ A scannelés sikeresen befejeződött![/]");
-                        AnsiConsole.MarkupLine("[grey]Nyomj meg egy gombot a visszatéréshez...[/]");
+                        AnsiConsole.MarkupLine("[bold green]✔ Scanning finished succesfully![/]");
+                        AnsiConsole.MarkupLine("[grey]Press a key on your keyboard to return...[/]");
                         Console.ReadKey();
                         break;
 
